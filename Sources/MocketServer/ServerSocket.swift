@@ -15,11 +15,11 @@ public final class ServerSocket {
         self.ws = ws
     }
     
-    public func send(_ message: String) async throws {
-        try await ws.send(message)
+    public func send(_ message: String) {
+        ws.send(message)
     }
     
-    public func ping() async throws {
-        try await ws.sendPing()
+    public func ping() {
+        ws.sendPing()
     }
 }
