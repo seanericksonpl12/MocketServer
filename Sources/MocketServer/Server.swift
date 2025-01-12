@@ -33,11 +33,15 @@ public class Server {
             }
         }
         
+        DispatchQueue.global().async {
+            do {
+                try app.run()
+            } catch {
+                print("Failed to start server: \(error)")
+            }
+        }
+
         self.app = app
-
-        try self.app?.run()
-
-       
         print("Server started at ws://\(hostname):\(port)/ws")
     }
 
